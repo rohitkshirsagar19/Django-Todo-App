@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My To-Do List</title>
+</head>
+<body>
+    <h1>My Tasks</h1>
+    <ul>
+        {% for task in tasks %}
+            <li>
+                <strong>{{ task.title }}</strong>
+                - Status: {{ task.get_status_display }}
+                {% if task.due_date %}
+                    | Due: {{ task.due_date|date:"M d, Y" }}
+                {% endif %}
+            </li>
+        {% empty %}
+            <li>You have no tasks yet.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
