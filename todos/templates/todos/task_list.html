@@ -9,7 +9,7 @@
     <ul>
         {% for task in tasks %}
             <li>
-                <strong>{{ task.title }}</strong>
+                <strong><a href="{% url 'task_detail' task.pk %}">{{ task.title }}</a></strong>
                 - Status: {{ task.get_status_display }}
                 {% if task.due_date %}
                     | Due: {{ task.due_date|date:"M d, Y" }}

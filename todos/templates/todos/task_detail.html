@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ task.title }}</title>
+</head>
+<body>
+    <h1>{{ task.title }}</h1>
+    <p><strong>Status:</strong> {{ task.get_status_display }}</p>
+    <p><strong>Priority:</strong> {{ task.priority }}</p>
+
+    {% if task.description %}
+        <p><strong>Description:</strong></p>
+        <p>{{ task.description|linebreaks }}</p>
+    {% endif %}
+
+    {% if task.due_date %}
+        <p><strong>Due Date:</strong> {{ task.due_date|date:"F d, Y, P" }}</p>
+    {% endif %}
+
+    <hr>
+    <a href="{% url 'task_list' %}">Back to Task List</a>
+</body>
+</html>
