@@ -45,3 +45,14 @@ def task_update(request,pk):
             }
         return render(request,'todos/task_form.html',context)
 
+def task_delete(request,pk):
+    task = get_object_or_404(Task,pk=pk)
+    if request.method == 'POST':
+        task.delete()
+        return redirect('task_list')
+    
+    context = {
+        'task': task
+    }
+
+    return render(request,'todos/task_confirm_delete.html',context)
