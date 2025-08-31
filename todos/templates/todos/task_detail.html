@@ -6,6 +6,7 @@
 </head>
 <body>
     <h1>{{ task.title }}</h1>
+    <a href="{% url 'task_update' task.pk %}"> Edit this task </a> <hr>
     <p><strong>Status:</strong> {{ task.get_status_display }}</p>
     <p><strong>Priority:</strong> {{ task.priority }}</p>
 
