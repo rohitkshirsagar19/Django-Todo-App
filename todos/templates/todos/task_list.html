@@ -7,6 +7,7 @@
 <body>
     <h1>My Tasks</h1>
     <ul>
+        <a href="{% url 'task_create' %}">Create New Task</a> <ul></ul>
         {% for task in tasks %}
             <li>
                 <strong><a href="{% url 'task_detail' task.pk %}">{{ task.title }}</a></strong>
